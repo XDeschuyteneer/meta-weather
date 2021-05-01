@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <default sync-j="8" revision="refs/heads/dunfell"/>
+
+    <remote name="github-xade" fetch="https://github.com/XDeschuyteneer" />
+    <remote name="yoctoproject" fetch= "git://git.yoctoproject.org/" />
+    <remote name="oe" fetch= "git://git.openembedded.org/"/>
+    <remote name="github-sbabic" fetch="https://github.com/sbabic/" />
+
+    <project name="poky.git" remote="yoctoproject" path="poky"/>
+    <project name="meta-weather.git" remote="github-xade" path="poky/meta-xade" revision="refs/heads/dunfell">
+        <linkfile src="conf/templateconf.cfg" dest="poky/.templateconf"/>
+    </project>
+    <project name="meta-raspberrypi.git" remote="yoctoproject" path="poky/meta-raspberrypi"/>
+    <project name="meta-openembedded.git" remote="oe" path="poky/meta-openembedded">
+        <linkfile src="meta-oe" dest="poky/meta-oe"/>
+        <linkfile src="meta-python" dest="poky/meta-python"/>
+    </project>
+    <project name="meta-swupdate.git" remote="github-sbabic" path="poky/meta-swupdate" />
+</manifest>
